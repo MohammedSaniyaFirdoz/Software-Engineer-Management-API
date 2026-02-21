@@ -57,3 +57,6 @@ POST
 
 PUT
 /api/v1/Software-engineers/{id}
+✔ Unit testing with JUnit 5 & Mockito
+✔ Service layer tested independently
+✔ Exception handling tested
