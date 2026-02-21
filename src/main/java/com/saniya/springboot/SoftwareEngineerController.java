@@ -1,0 +1,35 @@
+package com.saniya.springboot;
+
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("api/v1/Software-engineers")
+public class SoftwareEngineerController {
+    private final SoftwareEngineerService softwareEngineerService;
+
+    public SoftwareEngineerController(
+            SoftwareEngineerService softwareEngineerService
+    ) {
+        this.softwareEngineerService = softwareEngineerService;
+    }
+
+    @GetMapping
+    public List<SoftwareEngineer> getEngineers() {
+        return softwareEngineerService.getAllSoftwareEngineers();
+    }
+    @GetMapping("{id}")
+    public SoftwareEngineer getEngineerById(
+            @PathVariable Integer id
+    ) {
+        return softwareEngineerService.getSoftwareEngineerById(id);
+    }
+    @PutMapping("{id}")
+    public void updateEngineer(
+            @PathVariable Integer id,
+            @RequestBody SoftwareEngineer engineer
+    ) {
+        softwareEngineerService.updateEngineer(id, engineer);
+    }
+}
